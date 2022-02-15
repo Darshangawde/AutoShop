@@ -1,0 +1,36 @@
+ CREATE TABLE auto_orders(
+  orderno int primary key,
+  customername varchar(20),
+  partno int,
+  orderdate timestamp,
+  qty int,
+  amount number(7),
+  constraint fk_orders_parts foreign key (partno) references auto_parts(partno)
+  );
+
+CREATE TABLE auto_parts(
+  partno int primary key,
+  partname varchar(10),
+  prize number(7)
+  );
+
+CREATE TABLE auto_counter(
+	entity varchar(10),
+	count int
+	);
+
+CREATE VIEW auto_store as 
+SELECT
+	auto_orders.orderno,
+	auto_orders.customername,
+	auto_parts.partname,
+	auto_orders.orderdate,
+	auto_orders.qty,
+	auto_orders.amount
+FROM 
+	auto_orders,
+	auto_parts
+WHERE
+	auto_orders.partno = auto_parts.partno
+ORDER BY 1
+;
