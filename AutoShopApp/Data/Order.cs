@@ -4,6 +4,7 @@
     {
         public String CustomerName { get; set; } = String.Empty;
         public int Partno { get; set; }
+        public int Stock { get; set; }
         public int Qty { get; set; }
     }
 }

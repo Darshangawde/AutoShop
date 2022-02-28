@@ -44,8 +44,9 @@
             this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.custPartOrdBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.custPartOrdBindingSource)).BeginInit();
@@ -185,15 +186,6 @@
             // 
             this.custPartOrdBindingSource.DataSource = typeof(AutoShopApp.Data.CustPartOrd);
             // 
-            // textBox3
-            // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Partno", true));
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(280, 74);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(246, 34);
-            this.textBox3.TabIndex = 6;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -204,19 +196,41 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Part No. :";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.orderBindingSource;
+            this.comboBox1.DisplayMember = "Partno";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(280, 81);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(300, 28);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Stock", true));
+            this.label2.Location = new System.Drawing.Point(626, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "label2";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 549);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Partno", true));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -242,7 +256,6 @@
         private DataGridView dataGridView1;
         private BindingSource orderBindingSource;
         private BindingSource custPartOrdBindingSource;
-        private TextBox textBox3;
         private Label label3;
         private DataGridViewTextBoxColumn orderNoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn orderDateDataGridViewTextBoxColumn;
@@ -250,5 +263,7 @@
         private DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private ComboBox comboBox1;
+        private Label label2;
     }
 }

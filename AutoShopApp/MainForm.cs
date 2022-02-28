@@ -20,7 +20,7 @@ namespace AutoShopApp
             using var store = new Store();
             store.UpdateStore(order);
             custPartOrdBindingSource.Clear();
-            orderBindingSource.Clear();
+            //orderBindingSource.Clear();
             store.LoadStore(orderBindingSource, custPartOrdBindingSource);
         }
     }
