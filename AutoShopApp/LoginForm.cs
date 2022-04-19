@@ -17,8 +17,11 @@
         private void button1_Click(object sender, EventArgs e)
         {
             var admin = (Admin)adminBindingSource.Current;
-           
-            bool authenticatication =  admin.Authenticate(admin);
+
+            using var store = new Store();
+            bool authenticatication = store.Authenticate(admin.AdminName, admin.AdminPassword);
+
+            //bool authenticatication =  admin.Authenticate(admin);
 
             if (authenticatication)
             {
@@ -29,7 +32,7 @@
                         Hide();
                         mf.ShowDialog();
                         adminBindingSource.Clear();
-                        Show();
+                        Close();
                         break;
 
                     case "Parts":
@@ -37,7 +40,7 @@
                         Hide();
                         partForm.ShowDialog();
                         adminBindingSource.Clear();
-                        Show();
+                        Close();
                         break;
                     default:
                         if (MessageBox.Show("Please,\n select Orders or Parts.", "AutoShoppApp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)

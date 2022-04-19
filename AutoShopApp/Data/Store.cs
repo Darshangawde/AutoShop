@@ -13,9 +13,22 @@ namespace AutoShopApp.Data
         public Store()
         {
             //string ConnectionString = "server=db4free.net;user id=autoshop_admin;Password=rishi2007;persistsecurityinfo=True;database=autoshop_admin";
-            var con = new AutoConfig(new AutoMyConnection()).getAutoConnection(); //new MySqlConnection(ConnectionString)
+            var con = AutoConfig.getAutoConnection();// (new AutoMyConnection()).getAutoConnection(); //new MySqlConnection(ConnectionString)
             command = con.CreateCommand();
             command.Connection.Open();
+        }
+
+        public bool Authenticate(string username, string pass)
+        {
+            command.CommandText = $"SELECT count(*) FROM admins WHERE adminname='{username}' AND adminpass='{pass}'";
+            using var reader = command.ExecuteReader();
+            if( reader.Read())
+            {
+                int count = reader.GetInt32(0);
+                if(count > 0)
+                    return true;
+            }
+            return false;
         }
 
         /*          command.CommandText = "SELECT count FROM auto_counter WHERE entity = 'orders'";
@@ -43,7 +56,7 @@ namespace AutoShopApp.Data
 
         public void insertParts(Parts parts)
         {
-            command.CommandText = $"call insert_part('{parts.PartName}', {parts.AddStock}, {parts.Price});";
+            command.CommandText = $"call insert_part('{parts.PartName}', {parts.AddStock}, {parts.Price})";
         }
 
         public void LoadStore(IBindingList order, IBindingList custPartOrd)
