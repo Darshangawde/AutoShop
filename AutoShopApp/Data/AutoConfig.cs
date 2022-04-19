@@ -16,13 +16,19 @@
         }
 
     }
-    public class AutoConfig
+    public static class AutoConfig
     {
-        private AutoConnection _connection;
-        public AutoConfig(AutoConnection connection)
+        /*        private AutoConnection _connection;
+        /*        public AutoConfig(AutoConnection connection)
+                {
+                    this._connection = connection;
+                }
+         */
+        public static MySqlConnection getAutoConnection()
         {
-            this._connection = connection;
+            string ConnectionString = "server=db4free.net;user id=autoshop_admin;Password=rishi2007;persistsecurityinfo=True;database=autoshop_admin";
+            MySqlConnection _connection = new MySqlConnection(ConnectionString);
+            return _connection;
         }
-        public MySqlConnection getAutoConnection() => _connection.getAutoConnection();
     }
 }

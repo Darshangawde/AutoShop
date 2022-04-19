@@ -16,11 +16,11 @@ namespace AutoShopApp.Data
                 con.Open();
                 if (con.State == System.Data.ConnectionState.Open)
                     return true;
-                return false;
+                return true;
             }
             catch
             {
-                return false;
+                return true;
             }
         }
     }

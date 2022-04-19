@@ -56,7 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(70, 33);
+            this.label1.Location = new System.Drawing.Point(70, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 28);
             this.label1.TabIndex = 0;
@@ -76,7 +76,7 @@
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "CustomerName", true));
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(280, 30);
+            this.textBox1.Location = new System.Drawing.Point(280, 78);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(300, 34);
             this.textBox1.TabIndex = 4;
@@ -190,7 +190,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(70, 77);
+            this.label3.Location = new System.Drawing.Point(70, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 28);
             this.label3.TabIndex = 2;
@@ -201,7 +201,7 @@
             this.comboBox1.DataSource = this.orderBindingSource;
             this.comboBox1.DisplayMember = "Partno";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(280, 81);
+            this.comboBox1.Location = new System.Drawing.Point(280, 37);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(300, 28);
             this.comboBox1.TabIndex = 10;
@@ -210,7 +210,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Stock", true));
-            this.label2.Location = new System.Drawing.Point(626, 85);
+            this.label2.Location = new System.Drawing.Point(627, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 11;
@@ -220,6 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(878, 549);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
@@ -236,7 +237,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AutoShop";
+            this.Text = "Orders";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -22,6 +22,7 @@ namespace AutoShopApp
             custPartOrdBindingSource.Clear();
             //orderBindingSource.Clear();
             store.LoadStore(orderBindingSource, custPartOrdBindingSource);
+            MainForm_Load(sender, e);
         }
     }
 }
