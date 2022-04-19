@@ -1,4 +1,14 @@
- CREATE TABLE auto_orders(
+ CREATE TABLE auto_parts(
+  partno int primary key,
+  partname varchar(10),
+  price number(7)
+  );
+  
+INSERT INTO auto_parts VALUES (101, 'Clutch Kit', 1200);
+	
+  -----------------------------------auto_orders-----------------------------------------------------
+  
+  CREATE TABLE auto_orders(
   orderno int primary key,
   customername varchar(20),
   partno int,
@@ -8,16 +18,22 @@
   constraint fk_orders_parts foreign key (partno) references auto_parts(partno)
   );
 
-CREATE TABLE auto_parts(
-  partno int primary key,
-  partname varchar(10),
-  prize number(7)
-  );
+-------------------------------------auto_counter-------------------------------------------------------
 
 CREATE TABLE auto_counter(
 	entity varchar(10),
 	count int
 	);
+INSERT INTO auto_counter VALUE('orders', 0);
+INSERT INTO auto_counter VALUE('parts', 0);
+
+UPDATE
+	auto_counter
+SET
+	count = 0 
+WHERE
+	entity = 'orders';
+-------------------------------------auto_store------------------------------------------------------------------
 
 CREATE VIEW auto_store as 
 SELECT
